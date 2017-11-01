@@ -7,6 +7,7 @@
 <script src="js/linkparam.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/panoform.js"></script>
+<script src="js/filesaver.min.js"></script>
 </head>
 <body id="main_body" >
 
@@ -56,8 +57,13 @@
 
 					<li class="buttons">
 			    <input type="hidden" name="callback" value="index.html" />
-
+					<a id="saveFormOnline" class="linkbutton" type="button" name="onlinehtml" onclick="saveOnlineHTML('view360_online.html')">Download ONline Panorama</a>
+					<a id="saveFormOffline" class="linkbutton" type="button" name="offlinehtml" onclick="saveOfflineHTML('view360.html')">Download OFFline Panorama</a>
+					<a id="bImageMapEditor" class="linkbutton" type="button" name="imagemapcall" onclick="document.location.href ='https://niebert.github.io/imgmap'">ImageMap Editor</a>
+					<!--
 				<input id="saveForm" class="linkbutton" type="submit" name="submit" value="Submit" />
+			-->
+
 		</li>
 			</ul>
 		</form>
@@ -87,5 +93,43 @@
 		}
 		//-------------------------------------------------------
 	</script>
+	<div Xstyle="display:none">
+<textarea id="template" rows="20" cols="120">
+	&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8" /&gt;
+	&lt;title&gt;Panorama 360&deg;&lt;/title&gt;
+	&lt;meta name="description" content="Creative design agency that tries to make the complex feel simple." /&gt;
+	&lt;link rel="stylesheet" href="___PATH___css/site.css" media="all" /&gt;
+	&lt;link rel="stylesheet" href="___PATH___css/panorama360.css" media="all" /&gt;
+	&lt;script src="___PATH___/js/jquery-1.4.4.min.js"&gt;&lt;/script&gt;
+	&lt;script src="___PATH___js/jquery.mousewheel.min.js"&gt;&lt;/script&gt;
+	&lt;script src="___PATH___js/jquery.panorama360.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		&lt;!--
+			$(function(){
+				$('.panorama-view').panorama360();
+			});
+		--&gt;
+	&lt;/script&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+	&lt;div class="panorama" id="panodiv"&gt;
+		&lt;div class="panorama-view"&gt;
+			&lt;div class="panorama-container" id="panocontainer"&gt;
+				&lt;img src="___IMGURL___" usemap="hotspots" data-width="___WIDTH___" data-height="___HEIGHT___" alt="Panorama" /&gt;
+				&lt;map id="hotspots" name="hotspots"&gt;
+___IMGMAP___
+				&lt;/map&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;a class="info round" href="___INFOURL___" target="_blank"&gt;___INFOLABEL___&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</textarea>
+	</div>
 	</body>
 </html>

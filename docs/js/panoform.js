@@ -17,3 +17,41 @@ function setDefaultPanorama() {
   el("infolabel").value = "Panorama360";
   el("infourl").value = "https://en.wikiversity.org/wiki/3D_Modelling/Examples";
 }
+function getTemplate(pPath) {
+  var vTpl = el("template").value;
+  vTpl = vTpl.replace(/___IMGURL___/g,el('imgurl').value);
+  vTpl = vTpl.replace(/___HEIGHT___/g,el('height').value);
+  vTpl = vTpl.replace(/___WIDTH___/g,el('width').value);
+  vTpl = vTpl.replace(/___IMGMAP___/g,el('imgmap').value);
+  vTpl = vTpl.replace(/___INFOURL___/g,el('infourl').value);
+  vTpl = vTpl.replace(/___INFOLABEL___/g,el('infolabel').value);
+  vTpl = vTpl.replace(/___PATH___/g,pPath);
+  return vTpl
+}
+
+function saveOnlineHTML(pFilename) {
+  if (el('imgurl').value == "") {
+    alert("ERROR: Image URL is not defined.\nWill insert default value for you!");
+    setDefaultPanorama();
+  };
+  console.log("Panorama360 export('"+pFilename+"')-Call");
+  var vContent = getTemplate("https://niebert.github.io/panorama360/");
+  saveSourceHTML(pFilename,vContent);
+};
+
+function saveOfflineHTML(pFilename) {
+  if (el('imgurl').value == "") {
+    alert("ERROR: Image URL is not defined.\nWill insert default value for you!");
+    setDefaultPanorama();
+  };
+  console.log("Panorama360 export('"+pFilename+"')-Call");
+  var vContent = getTemplate("");
+  saveSourceHTML(pFilename,vContent);
+}
+
+function saveSourceHTML(pFilename,pContent) {
+  // File is a Javascript Class defined in FileSaver.js
+  var file = new File([pContent], {type: "text/plain;charset=utf-8"});
+  // method saveAs() is defined in FileSaver.js so import filesaver.js and blob.js to your Javascript project
+  saveAs(file,pFilename);
+}
