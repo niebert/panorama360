@@ -12,7 +12,7 @@
 	<img id="top" src="images/top.png" alt="">
 	<div id="form_container">
 		<h1><a>360 Degree Panorama - Starter </a></h1>
-		<form id="form_56724" class="appnitro"  method="post" action="https://niebert.github.io/panorama360/view360.html">
+		<form id="form360panorama" class="appnitro"  method="get" action="https://niebert.github.io/panorama360/view360.html">
 					<div class="form_description">
 			<h2>Panorama Image Selector</h2>
 			<p>Select the Link to your uploaded WikiMedia description. Click here to edit.</p>
@@ -80,7 +80,8 @@
 		for (var i = 0; i < vArrID.length; i++) {
 			vID = vArrID[i];
 			if (vLinkParam.exists(vID)) {
-				$(vID).val(vLinkParam.getValue(vID));
+				console.log("Parameter '"+vID+"' exists");
+				document.getElementById(vID).value = vLinkParam.getValue(vID);
 			};
 		}
 		//-------------------------------------------------------
