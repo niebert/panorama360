@@ -57,8 +57,9 @@
 
 					<li class="buttons">
 			    <input type="hidden" name="callback" value="index.html" />
-					<a id="saveFormOnline" class="linkbutton" type="button" name="onlinehtml" onclick="saveOnlineHTML('view360_online.html')">Download ONline Panorama</a>
-					<a id="saveFormOffline" class="linkbutton" type="button" name="offlinehtml" onclick="saveOfflineHTML('view360.html')">Download OFFline Panorama</a>
+					<a id="saveFormOnline"  class="linkbutton" type="button"  onclick="saveOnlineHTML('view360_online.html')">Download ONline Panorama</a>
+					<a id="saveFormOffline" class="linkbutton" type="button"  onclick="alert('Download Offline ZIP and replace docs/view360.html with the downloaded file');saveOfflineHTML('view360.html')">Download OFFline Panorama</a>
+					<a id="downloadOfflineZIP" class="linkbutton" type="button" name="zipdownload" onclick="alert('Download Panorama 360 - ZIP');window.open('https://github.com/niebert/panorama360/archive/master.zip');">Download Panorama ZIP</a>
 					<a id="bImageMapEditor" class="linkbutton" type="button" name="imagemapcall" onclick="document.location.href ='https://niebert.github.io/imgmap'">ImageMap Editor</a>
 					<!--
 				<input id="saveForm" class="linkbutton" type="submit" name="submit" value="Submit" />
