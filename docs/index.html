@@ -24,7 +24,7 @@
 		<div>
 			<input id="imgurl" name="imgurl" class="element text large" type="text" maxlength="255" value=""/>
 			Image Filename: <input id="imgfilename" size  type="text" maxlength="255" value=""/>
-			<a href="javascript:$('mediawiki_source').val='Annweiler_Queich_05.JPG'">[&lt;]</a>
+			<a href="javascript:$('mediawiki_source').val='Annweiler_Queich_05.JPG'" class="linkbutton">&lt;</a>
 		</div>
 		</li>		<li id="li_2" >
 		<label class="description" for="width">Image Width </label>
@@ -56,7 +56,7 @@
 					<li class="buttons">
 			    <input type="hidden" name="callback" value="index.html" />
 
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+				<input id="saveForm" class="linkbutton" type="submit" name="submit" value="Submit" />
 		</li>
 			</ul>
 		</form>
@@ -75,7 +75,7 @@
 		// LINK PARAMETER: Evaluation link parameter in JSON Path
 		var vLinkParam = new LinkParam();
 		vLinkParam.init(document);
-		var vArrID = ["imgurl","height","wdith","infolabel","infourl","imagemap"];
+		var vArrID = ["imgurl","height","width","infolabel","infourl","imagemap"];
 		var vID = "";
 		for (var i = 0; i < vArrID.length; i++) {
 			vID = vArrID[i];
