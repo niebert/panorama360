@@ -17,7 +17,8 @@ function setDefaultPanorama() {
   el("infolabel").value = "Panorama360";
   el("infourl").value = "https://en.wikiversity.org/wiki/3D_Modelling/Examples";
   el("imgmap").value = '<area shape="rect" alt="Old Part of the Karlsburg Castle" title="" coords="504,12,896,462" href="https://en.wikipedia.org/wiki/Durlach" target="_blank"/>\n<area shape="rect" alt="Newer part of the Karlsburg castle rebuild after fire" title="" coords="913,4,2969,453" href="https://en.wikipedia.org/wiki/Karlsburg_Castle" target="_blank" />';
-}
+};
+
 function getTemplate(pPath) {
   var vTpl = el("template").value;
   vTpl = vTpl.replace(/___IMGURL___/g,el('imgurl').value);
