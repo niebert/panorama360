@@ -9,25 +9,96 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 	<script src="js/jquery.mousewheel.min.js"></script>
 	<script src="js/jquery.panorama360.js"></script>
+	<script src="js/panoform.js"></script>
+	<script src="js/linkparam.js"></script>
 	<script>
-	<!--
-		$(function(){
-			$('.panorama-view').panorama360();
-		});
+		<!--
+			$(function(){
+				$('.panorama-view').panorama360();
+			});
+			//-------------------------------------------------------
+			// PANORAMA DEFAULT HASH: Set Hash with Default paramters
+			var vFile = 'Panorama_Schloss_Durlach.jpg';
+			var vURL = "https://en.wikipedia.org/wiki/Special:Redirect/file/"+vFile;
+			//var vURL = "https://upload.wikimedia.org/wikipedia/commons/4/43/Panorama_Schloss_Durlach.jpg";
+			var vPanoHash = {
+				"imgurl": vURL,
+				"height":"560",
+				"width":"5552",
+				"infolabel":"Panorama360",
+				"infourl":"https://en.wikiversity.org/wiki/3D_Modelling/Examples",
+				"imagemap":""
+			};
+			//-------------------------------------------------------
+			// LINK PARAMETER: Evaluation link parameter in JSON Path
+			var vLinkParam = new LinkParam();
+			vLinkParam.init(document);
+			var vArrID = ["imgurl","height","width","infolabel","infourl","imgmap"];
+			var vID = "";
+			for (var i = 0; i < vArrID.length; i++) {
+				vID = vArrID[i];
+				if (vLinkParam.exists(vID)) {
+					console.log("Parameter '"+vID+"' exists");
+					vPanoHash[vID] = vLinkParam.getValue(vID);
+				};
+			}
+			//-------------------------------------------------------
+			// CREATE PANORAMA in DOM: Generate the DOM Elements
+			//<img src="http://upload.wikimedia.org/wikipedia/commons/1/15/View_from_Sky_Tower_Akl.jpg" usemap="hotspots" data-width="4996" data-height="1300" alt="Panorama" />
+			//<map id="hotspots" name="hotspots">
+			//</map>
+			//------ Panorama Image ----
+			//var vIMG = cr("IMG");
+			// vIMG.setAttribute("src",vPanoHash["imgurl"]);
+			// vIMG.setAttribute("usemap","hotspots");
+			// vIMG.setAttribute("data-width",vPanoHash["width"]);
+			// vIMG.setAttribute("data-height",vPanoHash["height"]);
+			// vIMG.setAttribute("alt","Panorama 360");
+			// el("panocontainer").appendChild(vIMG);
+			//------ Panorama Image ----
+			// var vMAP = cr("MAP");
+			// vMAP.setAttribute("id","hotspots");
+			// vMAP.setAttribute("name","hotspots");
+			// vMAP.innerHTML = vPanoHash["imgmap"]
+			// el("panocontainer").appendChild(vMAP);
+			//------ Info Link (bottom right) ----
+			// var vInfo = cr("a");
+			// vInfo.className = "info round";
+			// vInfo.setAttribute("href",vPanoHash["infourl"]);
+			// vInfo.innerHTML = vPanoHash["infolabel"];
+			// el("panodiv").appendChild(vInfo);
+		//-------------------------------------------------------
 	-->
 	</script>
-</head>
+	</head>
 <body>
-	<div class="panorama">
+	<div class="panorama" id="panodiv">
 		<div class="panorama-view">
-			<div class="panorama-container">
-				<img src="http://upload.wikimedia.org/wikipedia/commons/1/15/View_from_Sky_Tower_Akl.jpg" usemap="hotspots" data-width="4996" data-height="1300" alt="Panorama" />
-				<map id="hotspots" name="hotspots"> 
-					<area shape="rect" coords="240,530,520,580" href="#" alt="This is a hotspot" />
+			<div class="panorama-container" id="panocontainer">
+				<script>
+					<!--
+						document.write('<img  id="panoimage"  src="'+vPanoHash["imgurl"]+'" usemap="hotspots" data-width="'+vPanoHash["width"]+'" data-height="'+vPanoHash["height"]+'" alt="Panorama" />')
+					-->
+				</script>
+				<map id="hotspots" name="hotspots">
+					<script>
+						<!--
+							document.write(vPanoHash["imgmap"])
+						-->
+					</script>
 				</map>
 			</div>
 		</div>
-		<a class="info round" href="http://commons.wikimedia.org/wiki/File:View_from_Sky_Tower_Akl.jpg">Sky Tower Akl</a>
+		<script>
+			<!--
+				document.write('<a class="info round" href="'+vPanoHash["infourl"]+'" target="_blank">'+vPanoHash["infolabel"]+'</a>');
+			-->
+		</script>
 	</div>
+	<script>
+	<!--
+	-->
+	</script>
+
 </body>
 </html>

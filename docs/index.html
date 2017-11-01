@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/form360.css" media="all">
 <script src="js/linkparam.js"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/panoform.js"></script>
 </head>
 <body id="main_body" >
 
@@ -15,7 +16,7 @@
 		<form id="form360panorama" class="appnitro"  method="get" action="https://niebert.github.io/panorama360/view360.html">
 					<div class="form_description">
 			<h2>Panorama Image Selector</h2>
-			<p>Select the Link to your uploaded WikiMedia description. Click here to edit.</p>
+			<p>Display the following 360 Degree Panorama with the following image e.g. from <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank">WikiMedia</a>.</p>
 		</div>
 			<ul >
 
@@ -24,7 +25,7 @@
 		<div>
 			<input id="imgurl" name="imgurl" class="element text large" type="text" maxlength="255" value=""/>
 			Image Filename: <input id="imgfilename" size  type="text" maxlength="255" value=""/>
-			<a href="javascript:$('mediawiki_source').val='Annweiler_Queich_05.JPG'" class="linkbutton">&lt;</a>
+			<a href="javascript:setDefaultPanorama()" class="linkbutton">&lt;</a>
 		</div>
 		</li>		<li id="li_2" >
 		<label class="description" for="width">Image Width </label>
@@ -75,13 +76,13 @@
 		// LINK PARAMETER: Evaluation link parameter in JSON Path
 		var vLinkParam = new LinkParam();
 		vLinkParam.init(document);
-		var vArrID = ["imgurl","height","width","infolabel","infourl","imagemap"];
+		var vArrID = ["imgurl","height","width","infolabel","infourl","imgmap"];
 		var vID = "";
 		for (var i = 0; i < vArrID.length; i++) {
 			vID = vArrID[i];
 			if (vLinkParam.exists(vID)) {
 				console.log("Parameter '"+vID+"' exists");
-				document.getElementById(vID).value = vLinkParam.getValue(vID);
+				el(vID).value = vLinkParam.getValue(vID);
 			};
 		}
 		//-------------------------------------------------------
