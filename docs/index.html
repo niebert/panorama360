@@ -5,7 +5,7 @@
 <title>Panorama360 Image Selector</title>
 <link rel="stylesheet" type="text/css" href="css/form360.css" media="all">
 <script src="js/linkparam.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="js/jquery-1.4.4.min.js"></script>
 <script src="js/panoform.js"></script>
 <script src="js/filesaver.min.js"></script>
 </head>
@@ -26,6 +26,11 @@
 		<div>
 			<input id="imgurl" name="imgurl" class="element text large" type="text" maxlength="255" value=""/>
 			Image Filename: <input id="imgfilename" size  type="text" maxlength="255" value=""/>
+			<select id="panoselect">
+				<option value="Regensburg_Uferpanorama_08_2006.jpg">
+					Regensburg Panorama
+				</option>
+			</select>
 			<a href="javascript:setDefaultPanorama()" class="linkbutton">&lt;</a>
 		</div>
 		</li>		<li id="li_2" >

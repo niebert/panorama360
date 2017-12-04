@@ -6,17 +6,18 @@ function cr(pTag) {
 }
 
 function setDefaultPanorama() {
-  var vFile = 'Panorama_Schloss_Durlach.jpg';
+  var vFile = el("panoselect").value || 'Panorama_Schloss_Durlach.jpg';
+  var vName = "Regensburg";
   el('imgfilename').value = vFile;
   var vURL = "https://en.wikipedia.org/wiki/Special:Redirect/file/"+vFile;
   //var vURL = "https://upload.wikimedia.org/wikipedia/commons/4/43/Panorama_Schloss_Durlach.jpg";
   console.log("setLoadImageURL('"+vURL+"') for WikiMedia");
   el('imgurl').value = vURL;
-  el('height').value = "560";
-  el('width').value = "5552";
+  el('height').value = "1500";
+  el('width').value = "7600";
   el("infolabel").value = "Panorama360";
-  el("infourl").value = "https://en.wikiversity.org/wiki/3D_Modelling/Examples";
-  el("imgmap").value = '<area shape="rect" alt="Old Part of the Karlsburg Castle" title="" coords="504,12,596,162" href="https://en.wikipedia.org/wiki/Durlach" target="_blank"/>\n<area shape="rect" alt="Newer part of the Karlsburg castle rebuild after fire" title="" coords="1513,244,1669,353" href="https://en.wikipedia.org/wiki/Karlsburg_Castle" target="_blank" />';
+  el("infourl").value = "https://commons.wikimedia.org/wiki/File:"+vName;
+  el("imgmap").value = "<area shape=\"rect\" alt=\"(1) Click for Info about "+vName+"\" title=\""+vName+"\" coords=\"504,12,596,162\" href=\"https://en.wikipedia.org/wiki/"+vName+"\" target=\"_blank\"/>\n<area shape=\"rect\" alt=\"(2) Click for Info about "+vName+"\" title=\""+vName+"\" coords=\"1513,244,1669,353\" href=\"https://en.wikipedia.org/wiki/"+vName+"\" target=\"_blank\" />";
 };
 
 function getTemplate(pPath) {
