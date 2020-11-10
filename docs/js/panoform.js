@@ -54,7 +54,7 @@ function saveOfflineHTML(pFilename) {
 
 function saveSourceHTML(pFilename,pContent) {
   // File is a Javascript Class defined in FileSaver.js
-  var file = new File([pContent], {type: "text/plain;charset=utf-8"});
+  var file = new Blob([pContent], {type: "text/plain;charset=utf-8"});
   // method saveAs() is defined in FileSaver.js so import filesaver.js and blob.js to your Javascript project
   saveAs(file,pFilename);
 }
